@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import Navbar from '@/components/Navbar';
 
 export default function Gallery() {
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -108,51 +108,8 @@ export default function Gallery() {
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   return (
-    <div className="min-h-screen bg-white">
-      {/* Navigation */}
-      
-      <nav className="bg-white shadow-sm border-b border-gray-100">
-        <div className="mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            {/* Logo */}
-            <div className="flex items-center">
-              <h1 className="text-2xl font-pacifico text-green-700">Feathers of Hope</h1>
-            </div>
-
-            {/* Desktop Menu */}
-            <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-8">
-                <Link href="/" className="text-green-700 hover:text-green-800 px-3 py-2 text-sm font-medium">Home</Link>
-                <Link href="/about" className="text-gray-600 hover:text-green-700 px-3 py-2 text-sm font-medium">About</Link>
-                <Link href="/gallery" className="text-gray-600 hover:text-green-700 px-3 py-2 text-sm font-medium">Gallery</Link>
-                <Link href="/testimonials" className="text-gray-600 hover:text-green-700 px-3 py-2 text-sm font-medium">Testimonials</Link>
-                <Link href="/sponsors" className="text-gray-600 hover:text-green-700 px-3 py-2 text-sm font-medium">Sponsors</Link>
-              </div>
-            </div>
-
-            {/* Mobile Menu Button */}
-            <div className="md:hidden">
-              <button
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="text-gray-700 hover:text-green-700 focus:outline-none"
-              >
-                {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-              </button>
-            </div>
-          </div>
-        </div>
-
-        {/* Mobile Dropdown Menu */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <Link href="/" className="block text-green-700 hover:text-green-800 px-3 py-2 rounded-md text-base font-medium">Home</Link>
-            <Link href="/about" className="block text-gray-600 hover:text-green-700 px-3 py-2 rounded-md text-base font-medium">About</Link>
-            <Link href="/gallery" className="block text-gray-600 hover:text-green-700 px-3 py-2 rounded-md text-base font-medium">Gallery</Link>
-            <Link href="/testimonials" className="block text-gray-600 hover:text-green-700 px-3 py-2 rounded-md text-base font-medium">Testimonials</Link>
-            <Link href="/sponsors" className="block text-gray-600 hover:text-green-700 px-3 py-2 rounded-md text-base font-medium">Sponsors</Link>
-          </div>
-        )}
-      </nav>
+    <div className="min-h-screen bg-white pt-16">
+      <Navbar /> {/* ✅ Use reusable sticky*/}
 
       {/* Hero Section */}
       <div className="relative py-24 bg-green-50">
